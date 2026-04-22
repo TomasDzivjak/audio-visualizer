@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neon Audio Reactor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="back-button" href="#" onclick="history.back()">← Späť na portál</a>
+
+  <div class="bg-overlay"></div>
+
+  <div class="controls-panel">
+    <h1>Neon Audio Reactor</h1>
+
+    <label>MP3 súbor</label>
+    <input type="file" id="audioFile" accept=".mp3,audio/mpeg" />
+
+    <label>Logo / obrázok do stredu</label>
+    <input type="file" id="logoFile" accept="image/*" />
+
+    <label>Background obrázok</label>
+    <input type="file" id="bgFile" accept="image/*" />
+
+    <label>Názov interpreta</label>
+    <input type="text" id="artistInput" placeholder="Napr. Alan Walker" />
+
+    <label>Názov skladby</label>
+    <input type="text" id="trackInput" placeholder="Napr. Faded" />
+
+    <label>Primárna farba</label>
+    <input type="color" id="primaryColor" value="#ff00cc" />
+
+    <label>Sekundárna farba</label>
+    <input type="color" id="secondaryColor" value="#00e5ff" />
+
+    <label>Sila bass efektu</label>
+    <input type="range" id="bassBoost" min="20" max="180" value="90" />
+
+    <label>Počet particles</label>
+    <input type="range" id="particleCount" min="50" max="300" value="140" />
+
+    <div class="toggle-row">
+      <label><input type="checkbox" id="rainbowMode" checked /> Rainbow ring</label>
+      <label><input type="checkbox" id="glowMode" checked /> Glow efekt</label>
+    </div>
+
+    <div class="button-row">
+      <button id="playBtn">Play</button>
+      <button id="pauseBtn">Pause</button>
+    </div>
+  </div>
+
+  <div class="visualizer-wrapper">
+    <canvas id="visualizerCanvas"></canvas>
+
+    <div class="center-disc" id="centerDisc">
+      <img id="centerLogo" src="assets/default-logo.png" alt="Logo" />
+    </div>
+
+    <div class="track-info">
+      <div id="artistName">Unknown Artist</div>
+      <div id="trackName">Unknown Track</div>
+    </div>
+  </div>
+
+  <audio id="audio" crossorigin="anonymous"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
